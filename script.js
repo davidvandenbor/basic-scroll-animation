@@ -7,9 +7,9 @@
 */
 
 function animeer() {
-	var reveals = document.querySelectorAll(".animeren");
+	var selected = document.querySelectorAll(".animeren");
 
-	for (items of reveals) {
+	for (let items of selected) {
 		var windowHeight = window.innerHeight;
 		var elementTop = items.getBoundingClientRect().top;
 		var elementVisible = 160;

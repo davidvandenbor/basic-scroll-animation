@@ -1,41 +1,170 @@
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab");
+
 body {
-  padding: 2em;
-  font-family: sans-serif
+    margin:         0;
+    background:     #482e5c;
+    font-family:    "Roboto Slab", sans-serif;
+    overflow-x:     hidden;
 }
 
-hr {
-  margin: 80px;
+/* ----------------------------------------------------------------------------------------------------------
+ #region: SECTIONS
+ Dit zijn de secties waarin de HTML elementen
+ geplaatst zijn om te worden geanimeerd
+ */
+
+section {
+    min-height:         100vh;
+    display:            flex;
+    justify-content:    center;
+    align-items:        center;
 }
 
-
-/* Examples of columns that scale automatically with CSS grid, no media queries needed! */
-
-.grid-container-cssgrid {
-  display:grid
+section:nth-child(1) {
+    color:      #e0ffff;
 }
 
-.grid-container--fill {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+section:nth-child(2) {
+    color:          #42455a;
+    background:     #ffe7d7;
 }
 
-.grid-container--fit {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+section:nth-child(3) {
+    color:      #e0ffff;
 }
 
-
-/* Same as above but with CSS columns instead of CSS grid! */
-
-.csscolumns {
-  columns:200px;
+section:nth-child(4) {
+    color:          #4a304a;
+    background:     #fee0ff;
 }
 
-/* the blue columns themselves */
-.grid-element {
-  background-color: rgb(82, 160, 212);
-  padding: 30px;
-  gap:2px;
-  color: #fff;
-  border: 2px solid #fff;
-  break-inside: avoid;
+section .container {
+    margin:     100px;
+}
+
+section h1 {
+    font-size:      3rem;
+    margin:         20px;
+}
+
+section h2 {
+    font-size:          40px;
+    text-transform:     uppercase;
+    text-align:         center;
+}
+
+.text-container {
+    display:        flex;
+    max-width:      1100px;
+}
+
+.text-container .text-box {
+    margin:         10px 20px 170px 20px;
+    padding:        30px 30px 50px 30px;
+    background:     #d181bd;
+}
+
+.text-container .text-box h3 {
+    font-size:          30px;
+    text-transform:     uppercase;
+    margin-bottom:      10px;
+}
+
+@media (max-width: 900px) {
+    section h1 {
+        font-size:      2rem;
+        text-align:     center;
+    }
+
+    .text-container {
+        flex-direction:     column;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------
+ #region: ANIMATIE TRIGGERS
+ hier wordt de CSS class "animeren" gebruikt
+ als trigger om aan te geven welke HTML
+ elementen geanimeerd moeten worden
+ */
+
+.animeren {
+    position:       relative;
+    opacity:        0;
+}
+
+.animeren.start {
+    opacity:    1;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------
+ #region: CUSTOM ANIMATIES
+ Hier worden de verschillende
+ keyframe animaties gemaakt!
+ */
+
+.start.fade-bottom {
+    animation:      fade-bottom 1s ease-out;
+}
+
+.start.fade-left {
+    animation:      fade-left 1s ease-in;
+}
+
+.start.fade-right {
+    animation:      fade-right 1s ease-in;
+}
+
+.start.zoom {
+    animation:              zoom 1s ease-out infinite alternate-reverse;
+    animation-fill-mode:    forwards;
+}
+
+/* Keyframes! */
+
+@keyframes fade-bottom {
+    0% {
+        transform:      translateY(50px) rotate(10deg);
+        opacity:        0;
+    }
+    100% {
+        transform:      translateY(0);
+        opacity:        1;
+    }
+}
+
+@keyframes fade-left {
+    0% {
+        transform:      translateX(-100px);
+        opacity:        0;
+    }
+    100% {
+        transform:      translateX(0);
+        opacity:        1;
+    }
+}
+
+@keyframes fade-right {
+    0% {
+        transform:      translateX(100px);
+        opacity:        0;
+    }
+    100% {
+        transform:      translateX(0);
+        opacity:        1;
+    }
+}
+
+@keyframes zoom {
+    0% {
+        transform:      scale(1, 1);
+        opacity:        1;
+        box-shadow:     -5px 10px 10px rgba(0, 0, 0, 0.9);
+    }
+    100% {
+        transform:      scale(1.2, 1.2) translateX(30px);
+        opacity:        1;
+        box-shadow:     -10px 20px 50px rgba(0, 0, 0, 0.3);
+    }
 }

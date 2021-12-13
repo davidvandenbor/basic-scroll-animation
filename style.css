@@ -79,6 +79,7 @@ section h2 {
 
     .text-container {
         flex-direction:     column;
+        max-width:          600px;
     }
 }
 

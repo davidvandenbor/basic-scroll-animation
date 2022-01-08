@@ -4,6 +4,12 @@
    De simpelste manier om custom made CSS 
    animaties op HTML elementen te "plakken" 
    met getBoundingClientRect() 
+   
+   getBoundingClientRect() checkt hoeveel pixels
+   van de bovenkant van het HTML object reeds "in beeld" is
+   en gebruikt dat als trigger om CSS animaties (die 
+   in het CSS bestand staan) te "plakken" op de HTML objecten
+   
 */
 
 function animeer() {
